@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>むらたでDON！</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="titleScreen">
+
+<div id="playlistBox">
+<input id="playlistUrl" placeholder="YouTubeプレイリストURL">
+</div>
+
+<div id="title">
+<img id="logo" src="img/logo.png">
+</div>
+
+<input id="nickname" placeholder="ニックネーム">
+
+<select id="questionCount">
+<option value="5">5問</option>
+<option value="10" selected>10問</option>
+<option value="20">20問</option>
+</select>
+
+<button id="startBtn">ゲーム開始</button>
+
+</div>
+
+
+<div id="loadingScreen">
+NOW LOADING...
+</div>
+
+
+<div id="gameHeader">
+<img src="img/logo.png" id="miniLogo">
+</div>
+
+
+<div id="questionNumber"></div>
+
+
+<div id="playerBox">
+
+<iframe id="player" allow="autoplay" allowfullscreen></iframe>
+
+<img id="judge">
+
+<div id="blocker"></div>
+
+<div id="black"></div>
+
+<div id="questionText"></div>
+
+<div id="answerTitle"></div>
+
+</div>
+
+
+<div id="answerBox">
+
+<div id="playerLabel">
+Player：<span id="playerLabelName"></span>
+</div>
+
+<div id="answerRow">
+
+<input id="answerInput" placeholder="曲名入力" disabled>
+
+<button id="submitBtn">送信</button>
+
+</div>
+
+</div>
+
+
+<div id="controls">
+<button id="buzz">回答する</button>
+<button id="skip">スキップ</button>
+</div>
+
+
+<button id="next">次の問題</button>
+
+
+<div id="answerTitle"></div>
+
+<div id="scoreScreen"></div>
+
+<button id="replay">再プレイ</button>
+
+
+<div id="volumeBox">
+音量
+<input type="range" min="0" max="100" value="50" id="volume">
+</div>
+
+<audio id="seStart" src="audio/deden.mp3"></audio>
+<audio id="seCorrect" src="audio/correct.mp3"></audio>
+<audio id="seWrong" src="audio/wrong.mp3"></audio>
+
+<script src="js/state.js"></script>
+<script src="js/player.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/main.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+</html>
