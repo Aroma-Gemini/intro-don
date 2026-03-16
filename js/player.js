@@ -20,3 +20,14 @@ iframe.contentWindow.postMessage(
 )
 
 }
+
+function unmutePlayer(){
+
+let iframe=document.getElementById("player")
+
+iframe.contentWindow.postMessage(
+'{"event":"command","func":"unMute","args":""}',
+'*'
+)
+
+}

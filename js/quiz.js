@@ -154,13 +154,14 @@ titles.splice(i,1)
 
 let iframe=document.getElementById("player")
 
-iframe.src=`https://www.youtube.com/embed/${currentVideo}?autoplay=1&controls=0&enablejsapi=1`
+iframe.src=`https://www.youtube.com/embed/${currentVideo}?autoplay=1&controls=0&enablejsapi=1&mute=1`
 
 document.getElementById("controls").style.display="flex"
 document.getElementById("answerBox").style.display="block"
 
 setTimeout(applyPlayerVolume,400)
 setTimeout(applyPlayerVolume,1200)
+setTimeout(unmutePlayer,1300)
 
 }
 
@@ -183,10 +184,11 @@ setTimeout(()=>{
 
 let iframe=document.getElementById("player")
 
-iframe.src=`https://www.youtube.com/embed/${currentVideo}?autoplay=1&controls=0&enablejsapi=1`
+iframe.src=`https://www.youtube.com/embed/${currentVideo}?autoplay=1&controls=0&enablejsapi=1&mute=1`
 
 setTimeout(applyPlayerVolume,400)
 setTimeout(applyPlayerVolume,1200)
+setTimeout(unmutePlayer,1300)
 
 },2000)
 
@@ -196,9 +198,11 @@ return
 
 setTimeout(()=>{
 let iframe=document.getElementById("player")
-iframe.src=`https://www.youtube.com/embed/${currentVideo}?start=60&autoplay=1&enablejsapi=1`
+iframe.src=`https://www.youtube.com/embed/${currentVideo}?start=60&autoplay=1&controls=0&enablejsapi=1&mute=1`
 setTimeout(applyPlayerVolume,400)
 setTimeout(applyPlayerVolume,1200)
+setTimeout(unmutePlayer,1300)
+
 },2000)
 
 setTimeout(()=>{
@@ -227,7 +231,9 @@ nextBtn.innerText="次の問題"
 nextBtn.onclick=prepareNext
 }
 
+setTimeout(()=>{
 nextBtn.style.display="inline-block"
+},10000)
 
 }
 
@@ -262,10 +268,11 @@ skipLock=true
 
 let iframe=document.getElementById("player")
 
-iframe.src=`https://www.youtube.com/embed/${currentVideo}?start=60&autoplay=1&enablejsapi=1`
+iframe.src=`https://www.youtube.com/embed/${currentVideo}?start=60&autoplay=1&controls=0&enablejsapi=1&mute=1`
 
 setTimeout(applyPlayerVolume,400)
 setTimeout(applyPlayerVolume,1200)
+setTimeout(unmutePlayer,1300)
 
 setTimeout(()=>{
 document.getElementById("black").style.opacity="0"
@@ -293,7 +300,9 @@ nextBtn.innerText="次の問題"
 nextBtn.onclick=prepareNext
 }
 
+setTimeout(()=>{
 nextBtn.style.display="inline-block"
+},10000)
 
 }
 
