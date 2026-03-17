@@ -15,26 +15,41 @@
 
 <div id="titleScreen">
 
-<div id="playlistBox">
-<input id="playlistUrl" placeholder="YouTubeプレイリストURL">
-</div>
+<div id="playerList"></div>
 
 <div id="title">
 <img id="logo" src="img/logo.png">
 </div>
 
-<input id="nickname" placeholder="ニックネーム">
+<div id="roomDisplay" style="display:none"></div>
 
-<select id="questionCount">
+<div id="playlistBox" style="display:none">
+<input id="playlistUrl" placeholder="YouTubeプレイリストURL">
+</div>
+
+<div id="modeSelect">
+<button id="hostBtn">ホストで部屋を作る</button>
+<button id="joinBtn">プレイヤーで参加する</button>
+</div>
+
+
+<input id="nickname" placeholder="ニックネーム" style="display:none">
+
+<input id="roomId" placeholder="部屋ID" style="display:none">
+
+<button id="joinRoomBtn" style="display:none">参加する</button>
+
+<div id="startRow">
+
+<select id="questionCount" style="display:none">
 <option value="5">5問</option>
 <option value="10" selected>10問</option>
 <option value="20">20問</option>
 </select>
 
-<button id="startBtn">ゲーム開始</button>
+<button id="startBtn" style="display:none">ゲーム開始</button>
 
-</div>
-
+</div> </div> <div id="gameScreen">
 
 <div id="loadingScreen">
 NOW LOADING...
@@ -85,7 +100,7 @@ Player：<span id="playerLabelName"></span>
 
 <div id="controls">
 <button id="buzz">回答する</button>
-<button id="skip">スキップ</button>
+<button id="skip">わからない</button>
 </div>
 
 
@@ -98,8 +113,8 @@ Player：<span id="playerLabelName"></span>
 
 <button id="replay">再プレイ</button>
 
-
 <div id="volumeBox">
+
 音量
 <input type="range" min="0" max="100" value="50" id="volume">
 </div>
@@ -112,8 +127,35 @@ Player：<span id="playerLabelName"></span>
 <script src="js/player.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/quiz.js"></script>
-<script src="js/main.js"></script>
+
 <script src="https://www.youtube.com/iframe_api"></script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCCbUYugMLYUsEK3HSra7MzggKDpw-5mco",
+  authDomain: "intro-don-3fc4c.firebaseapp.com",
+  databaseURL: "https://intro-don-3fc4c-default-rtdb.firebaseio.com",
+  projectId: "intro-don-3fc4c",
+  storageBucket: "intro-don-3fc4c.firebasestorage.app",
+  messagingSenderId: "340778379449",
+  appId: "1:340778379449:web:a2ada6eb8e90ea203e1368"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+window.db = db;
+window.ref = ref;
+window.set = set;
+window.onValue = onValue;
+
+</script>
+
+<script src="js/main.js"></script>
 
 </body>
 </html>
